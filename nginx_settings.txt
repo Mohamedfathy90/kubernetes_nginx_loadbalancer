@@ -1,0 +1,11 @@
+upstream node_apps {
+        server app1-service:3000;
+        server app2-service:3000;
+        }
+
+
+
+location / {
+    proxy_pass http://node_apps;
+}
+
