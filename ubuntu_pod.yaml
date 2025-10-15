@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ubuntu-pod
-  labels: 
-    app: nginx  
+  labels:
+    app: nginx
 spec:
   containers:
     - name: ubuntu-container
@@ -17,11 +17,17 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: NodePort    # You can use ClusterIP if you want internal-only
+  type: NodePort    
   selector:
     app: nginx
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 80
-      nodePort: 30080   # Optional: choose your external port (range 30000–32767)
+      nodePort: 30080
+    - name: https
+      port: 443
+      targetPort: 443
+      nodePort: 30443
+
 
