@@ -33,5 +33,9 @@ server {
         auth_basic_user_file /etc/nginx/.htpasswd;
         alias /var/www/devops/;
         index index.html;
+}
+
+
+        }
 
 
